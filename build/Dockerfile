@@ -1,11 +1,11 @@
 FROM ubuntu:focal
 COPY scripts /opt/mybaseimage/scripts
-EXPOSE 8080 8081 8082
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=UTC \
     HTTPPORT1=8080 \
     HTTPPORT2=8081 \
     HTTPPORT3=8082 \
+    HTTPPORT4=8083 \
     HOSTNAME=mybaseimage \
     APPNAME=mybaseimage
 RUN apt-get update \
