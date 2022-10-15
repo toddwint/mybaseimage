@@ -56,7 +56,6 @@ source "$(dirname "$(realpath $0)")"/config.txt
 docker run -dit \
     --name "$HOSTNAME" \
     -h "$HOSTNAME" \
-    -v "$HOSTNAME":/opt/"$APPNAME"/logs \
     -p "$IPADDR":"$HTTPPORT1":"$HTTPPORT1" \
     -p "$IPADDR":"$HTTPPORT2":"$HTTPPORT2" \
     -p "$IPADDR":"$HTTPPORT3":"$HTTPPORT3" \
