@@ -1,11 +1,6 @@
 FROM ubuntu:focal
-COPY scripts /opt/mybaseimage/scripts
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=UTC \
-    HTTPPORT1=8080 \
-    HTTPPORT2=8081 \
-    HTTPPORT3=8082 \
-    HTTPPORT4=8083 \
     HOSTNAME=mybaseimage \
     APPNAME=mybaseimage
 RUN apt-get update \
@@ -45,5 +40,5 @@ RUN apt-get update \
     apt-get autoremove -y \
     && \
     rm -rf /var/lib/apt/lists/*
-WORKDIR /opt/mybaseimage/scripts
-CMD ["/opt/mybaseimage/scripts/startup.sh"]
+WORKDIR /opt/
+CMD ["bash"]
