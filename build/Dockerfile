@@ -14,7 +14,7 @@ RUN apt-get update \
     && \
     echo $HOSTNAME > /etc/hostname \
     && \
-    wget -q https://github.com/tsl0922/ttyd/releases/download/1.7.1/ttyd.x86_64 -O /usr/local/bin/ttyd \
+    wget -q https://github.com/tsl0922/ttyd/releases/download/1.7.2/ttyd.x86_64 -O /usr/local/bin/ttyd \
     && \
     chmod 755 /usr/local/bin/ttyd \
     && \
