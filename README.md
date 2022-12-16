@@ -9,6 +9,14 @@ Docker Hub: <https://hub.docker.com/r/toddwint/mybaseimage>
 GitHub: <https://github.com/toddwint/mybaseimage>
 
 
+## Overview
+
+- Download the docker image and github files.
+- Configure the settings in `run/config.txt`.
+- Start a new container by running `run/create_container.sh`.
+- Use this image to create other images.
+
+
 ## Features
 
 - Ubuntu base image
