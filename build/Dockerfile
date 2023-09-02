@@ -8,6 +8,7 @@ RUN apt-get update \
     apt-get install -y \
     tzdata \
     iproute2 \
+    iputils-ping \
     python3-minimal \
     tmux \
     wget \
