@@ -1,0 +1,19 @@
+name: ${HOSTNAME}
+
+services:
+  mybaseimage:
+    image: toddwint/mybaseimage
+    hostname: ${HOSTNAME}
+    networks:
+        default:
+            ipv4_address: ${IPADDR}
+    environment:
+        - HOSTNAME=${HOSTNAME}
+        - TZ=${TZ}
+        - APPNAME=${APPNAME}
+    tty: true
+
+networks:
+    default:
+        name: "${INTERFACE}-macvlan"
+        external: true
