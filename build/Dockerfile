@@ -1,4 +1,6 @@
 FROM ubuntu:jammy
+ARG arch=x86_64
+ARG TARGETARCH
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=UTC \
     HOSTNAME=mybaseimage \
@@ -6,30 +8,31 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update \
     && \
     apt-get install -y \
-    tzdata \
+    fzf \
     iproute2 \
     iputils-ping \
     python3-minimal \
     tmux \
+    tzdata \
     wget \
     && \
     echo $HOSTNAME > /etc/hostname \
     && \
-    wget -q https://github.com/tsl0922/ttyd/releases/download/1.7.2/ttyd.x86_64 -O /usr/local/bin/ttyd \
+    wget -O /usr/local/bin/ttyd -q https://github.com/tsl0922/ttyd/releases/download/1.7.4/ttyd.$arch \
     && \
     chmod 755 /usr/local/bin/ttyd \
     && \
-    wget -q https://github.com/mthenw/frontail/releases/download/v4.9.1/frontail-linux -O /usr/local/bin/frontail \
+    wget -O /usr/local/bin/frontail -q https://github.com/mthenw/frontail/releases/download/v4.9.1/frontail-linux \
     && \
     chmod 775 /usr/local/bin/frontail \
     && \
     gzip /usr/local/bin/frontail \
     && \
-    wget -q https://github.com/gvalkov/tailon/releases/download/v1.1.0/tailon_1.1.0_linux_amd64.tar.gz -O /usr/local/bin/tailon_1.1.0_linux_amd64.tar.gz \
+    wget -O /usr/local/bin/tailon.tar.gz -q https://github.com/gvalkov/tailon/releases/download/v1.1.0/tailon_1.1.0_linux_$TARGETARCH.tar.gz \
     && \
-    tar -C /usr/local/bin -xvf /usr/local/bin/tailon_1.1.0_linux_amd64.tar.gz tailon \
+    tar -C /usr/local/bin -xvf /usr/local/bin/tailon.tar.gz tailon \
     && \
-    rm /usr/local/bin/tailon_1.1.0_linux_amd64.tar.gz \
+    rm /usr/local/bin/tailon.tar.gz \
     && \
     chmod 775 /usr/local/bin/tailon \
     && \
