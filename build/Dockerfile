@@ -1,5 +1,4 @@
 FROM ubuntu:jammy
-ARG arch=x86_64
 ARG TARGETARCH
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=UTC \
@@ -18,7 +17,7 @@ RUN apt-get update \
     && \
     echo $HOSTNAME > /etc/hostname \
     && \
-    wget -O /usr/local/bin/ttyd -q https://github.com/tsl0922/ttyd/releases/download/1.7.4/ttyd.$arch \
+    wget -O /usr/local/bin/ttyd -q https://github.com/tsl0922/ttyd/releases/download/1.7.4/ttyd.$(arch) \
     && \
     chmod 755 /usr/local/bin/ttyd \
     && \

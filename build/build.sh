@@ -6,4 +6,4 @@ if [[ -z $arch_match ]]; then
     echo "$arch is not supported. Bye"
     exit 1
 fi
-docker build --build-arg arch=$arch -t toddwint/mybaseimage .
+docker build -t toddwint/mybaseimage .
